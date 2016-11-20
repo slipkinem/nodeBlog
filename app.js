@@ -40,6 +40,12 @@ app.use(session({
 //flash 中间层
 app.use(flash());
 
+//处理表单和文件上传
+app.use(require('express-formidable')({
+    uploadDir:path.join(__dirname,'public/img'),
+    keepExtensions: true
+}));
+
 // 设置模板全局常量
 app.locals.blog = {
     title:pkg.name,

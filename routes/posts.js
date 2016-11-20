@@ -10,7 +10,8 @@ const checkLogin = require('../middlewares/check').checkLogin;
 //eg:GET /posts?author=xx
 
 router.get('/',function (req, res, next) {
-    res.send(req.flash);
+    // res.send(req.flash);
+    res.render('posts');
 });
 
 //POST /posts 发表一篇文章
