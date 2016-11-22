@@ -1,3 +1,5 @@
-<% include header.ejs %>
-这是主页
-<% include footer.ejs %>
+<%- include header.ejs %>
+    <% posts.forEach(function (post) { %>
+        <%- include('components/post-content',{post: post}) %>
+    <% }) %>
+<%- include footer.ejs %>

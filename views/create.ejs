@@ -1,0 +1,22 @@
+<% include header.ejs %>
+<div class="ui grid">
+    <div class="four wide column">
+        <a href="/posts?author=<%= user._id %>" data-title="<%= user.name %> | <%= ({m:'男',f:'女',x:'保密'})[user.gender] %>" class="avatar">
+            <img src="/img/<%= user.avatar %>" alt="头像" class="avatar">
+        </a>
+    </div>
+</div>
+<div class="eight wide column">
+    <form action="/posts" method="post" class="ui form column">
+        <div class="field required">
+            <label>标题</label>
+            <input type="text" name="title">
+        </div>
+        <div class="field required">
+            <label>内容</label>
+            <textarea name="content" cols="30" rows="10"></textarea>
+        </div>
+        <input type="submit" class="ui button" value="提交">
+    </form>
+</div>
+<% include footer.ejs %>

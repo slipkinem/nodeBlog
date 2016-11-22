@@ -7,7 +7,7 @@
  * 这样静态文件的请求就不会落到业务逻辑的路由里；flash 中间件应该放到 session 中间件之后加载，
  * 因为 flash 是基于 session 的。
  */
-
+'use strict';
 var path = require('path'),
     express = require('express'),
     session = require('express-session'),

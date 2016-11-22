@@ -13,5 +13,16 @@ module.exports = {
      */
     create: function (user) {
         return  User.create(user).exec();
+    },
+    /**
+     * 通过name获取用户
+     * @param name
+     * @returns {*|Array|{index: number, input: string}}
+     */
+    getUserByName: function (name) {
+        return User
+            .findOne({name: name})
+            .addCreatedAt()
+            .exec();
     }
 };

@@ -67,7 +67,6 @@ router.post('/',checkNotLogin,function (req, res, next) {
     //用户数据写入数据库
     UserModel.create(user)
         .then(result => {
-            console.log(result);
             user = result.ops[0];
             //存入session
             delete user.password;
