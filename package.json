@@ -4,9 +4,10 @@
   "description": "this is my node blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
+    "start": "cross-env NODE_ENV=production pm2 start app.js --node-args='--harmony' --name 'nodeBlog'"
   },
-  "author": "",
+  "author": "slipkinem",
   "license": "ISC",
   "dependencies": {
     "config-lite": "^1.5.0",
@@ -23,5 +24,11 @@
     "objectid-to-timestamp": "^1.3.0",
     "sha1": "^1.1.1",
     "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^3.1.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "supertest": "^2.0.1"
   }
 }

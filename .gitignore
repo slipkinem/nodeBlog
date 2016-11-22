@@ -40,3 +40,5 @@ jspm_packages
 
 #idea
 .idea
+/public/img/.gitignore
+/test/

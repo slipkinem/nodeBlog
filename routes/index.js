@@ -14,5 +14,10 @@ module.exports = function (app) {
         if (!res.headersSent) {
             res.render('404');
         }
+    });
+    app.use(function (err, req, res) {
+        res.render('error',{
+            error:err
+        });
     })
 };
