@@ -15,9 +15,11 @@ module.exports = function (app) {
             res.render('404');
         }
     });
-    app.use(function (err, req, res) {
-        res.render('error',{
-            error:err
-        });
-    })
+    // app.use(function (err, req, res) {
+    //     if (err) {
+    //         res.render('error',{
+    //             error:err
+    //         });
+    //     }
+    // })
 };

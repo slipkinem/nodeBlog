@@ -6,17 +6,47 @@
         </a>
     </div>
 </div>
-<div class="eight wide column">
-    <form action="/posts" method="post" class="ui form column">
+<div id="create-post" class="eight wide column">
+    <form method="post" class="ui form column">
         <div class="field required">
             <label>标题</label>
-            <input type="text" name="title">
+            <input type="text">
         </div>
         <div class="field required">
             <label>内容</label>
-            <textarea name="content" cols="30" rows="10"></textarea>
+            <textarea cols="30" rows="10"></textarea>
         </div>
-        <input type="submit" class="ui button" value="提交">
+        <input type="button" id="submit-post" class="ui button" value="提交">
     </form>
 </div>
+
+<script>
+    (function ($) {
+        $(function () {
+            function createPost(request) {
+                $.ajax({
+                    url: '/posts',
+                    method: 'POST',
+                    data: request
+                })
+                        .success(function (data) {
+                            if (data){
+                                console.log(data);
+                            }
+                        })
+                        .error(function (err) {
+                            console.error(err);
+                        })
+            }
+
+            $('#submit-post').click(function () {
+                var requestData = {
+                    title: $('#create-post input').val(),
+                    content: $('#create-post textarea').val()
+                };
+                createPost(requestData);
+            });
+        })
+    })(jQuery);
+</script>
 <% include footer.ejs %>
